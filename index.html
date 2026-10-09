@@ -322,7 +322,8 @@
                 month: "2-digit",
                 year: "2-digit",
                  hour: "2-digit",
-                minute: "2-digit"
+                minute: "2-digit",
+                sec:"2-digit"
             })
         });
     }
@@ -351,11 +352,10 @@
     emptyDiv.style.textAlign = "center";
     emptyDiv.style.padding = "2vmin";
 
-    // Wallet image
+  
     const img = document.createElement("img");
     img.src = "new2.png";
     img.alt = "Wallet";
-    // img.style.width = "50px";
     img.style.width = "30vmin";  
     img.style.height = "30vmin";
     img.style.position = "center";
