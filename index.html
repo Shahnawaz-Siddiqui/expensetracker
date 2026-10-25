@@ -183,6 +183,13 @@
              border-radius:0.9vmin;
         }
 
+        table{
+            color:white;
+            width:75vmin;
+        }
+        td{
+            text-align: center;
+        }
        
     </style>
 </head>
@@ -235,7 +242,21 @@
         <div style="display: flex; justify-content: center;">
         <div   style="background-color: #0F172A; width:80vmin; height:100%; border-radius:1.5vmin;">
         <h2 style="color:#10B981; margin-left:5vmin; margin-top:2vmin; font-size: 3vmin;">Recent Transactions</h2>
-        <ul id="transactionList" ></ul>
+        <!-- <ul id="transactionList" ></ul> -->
+        <table border="1" >
+            <thead>
+                <tr>
+           <th>Transaction</th>
+           <th>Amount</th>
+           <th>Category</th>
+           <th>Date and Time</th>
+           </tr>
+            </thead>
+            <tbody id="transactionList">
+                <tr></tr>
+            </tbody>
+
+        </table>
         </div>
         </div>
 
@@ -250,11 +271,11 @@
             <option value="Food">Food</option>
             <option value="Bills">Bills</option>
             <option value="Shopping">Shopping</option>
-            <option value="Other">Medicine</option>
-            <option value="Other">Tax</option>   
-            <option value="Other">Travel</option> 
+            <option value="Medicine">Medicine</option>
+            <option value="Tax">Tax</option>   
+            <option value="Travel">Travel</option> 
             <option value="Other">Other</option>
-            </select>
+            </select >
 
 
         <div style="display: flex; gap:0.5vmin"> 
@@ -277,7 +298,7 @@
 
     <script>
 
-        let transactions = [];
+        let transactions = []
         let balance = 0;
         let income = 0;
         let expense = 0;
@@ -300,30 +321,31 @@
     if(currentType === "income"){
         income += amount;
         transactions.push({
-            type: "Income",
+            type:'<span style="color:lightgreen; font-weight:50%;">↑</span>',
             amount: amount,
             category: category,
-            date: new Date().toLocaleDateString("en-GB", {
-                day: "2-digit",
-                month: "2-digit",
-                year: "2-digit",
-                 hour: "2-digit",
-                minute: "2-digit"
-            })
-        });
-    } else {
-        expense += amount;
-        transactions.push({
-            type: "Expense",
-            amount: amount,
-            category: category,
-            date: new Date().toLocaleDateString("en-GB", {
+            date: new Date().toLocaleString("en-GB", {
                 day: "2-digit",
                 month: "2-digit",
                 year: "2-digit",
                  hour: "2-digit",
                 minute: "2-digit",
-                sec:"2-digit"
+                 second:"2-digit"
+            })
+        });
+    } else {
+        expense += amount;
+        transactions.push({
+            type:'<span style="color:red; font-weight:50%;">↓</span>' ,
+            amount: amount,
+            category: category,
+            date: new Date().toLocaleString("en-GB", {
+                day: "2-digit",
+                month: "2-digit",
+                year: "2-digit",
+                 hour: "2-digit",
+                minute: "2-digit",
+                second:"2-digit"
             })
         });
     }
@@ -342,48 +364,45 @@
         document.getElementById('expense').innerText = "-₹" + expense;
         }
 
-        function updateTransactionList(){
-  const list = document.getElementById("transactionList");
-  list.innerHTML = "";
+       function updateTransactionList() {
 
-  if (transactions.length === 0) {
-    // Create a container for empty state
-    const emptyDiv = document.createElement("div");
-    emptyDiv.style.textAlign = "center";
-    emptyDiv.style.padding = "2vmin";
+    const list = document.getElementById("transactionList");
 
-  
-    const img = document.createElement("img");
-    img.src = "new2.png";
-    img.alt = "Wallet";
-    img.style.width = "30vmin";  
-    img.style.height = "30vmin";
-    img.style.position = "center";
-    
-    
-   
+    list.innerHTML = "";
 
+    if (transactions.length === 0) {
 
-    img.style.opacity = "0.8";
+        list.innerHTML = `
+            <tr>
+                <td colspan="4" style="text-align:center;">
+                    <img src="new2.png"
+                    style="width:200px;height:200px;"><br>
 
-    // Heading text
-    const heading = document.createElement("h3");
-    heading.innerText = "No transactions";
-    heading.style.color = "#10B981";
+                    <span style="color:#10B981;">
+                        No Transactions
+                    </span>
+                </td>
+            </tr>
+        `;
 
-    emptyDiv.appendChild(img);
-    emptyDiv.appendChild(heading);
-    list.appendChild(emptyDiv);
-  } else {
+        return;
+    }
 
-  transactions.forEach(txn => {
-    const li = document.createElement("li");
-    li.innerText = `${txn.type}: ₹${txn.amount} | Category: ${txn.category} | Date: ${txn.date}`;
-    
-    list.appendChild(li);
-  })
+    transactions.forEach(txn => {
+
+        const tr = document.createElement("tr");
+
+        tr.innerHTML = `
+            <td >${txn.type}</td>
+            <td>₹${txn.amount}</td>
+            <td>${txn.category}</td>
+            <td>${txn.date}</td>
+        `;
+
+        list.appendChild(tr);
+    });
+
 }
-     }
 
  window.onload = function(){
         updateTransactionList();
