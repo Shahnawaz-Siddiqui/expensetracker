@@ -131,6 +131,7 @@
         background: rgba(0,0,0,0.5);
         justify-content: center;
         align-items: center;
+        margin:2vmin;
         }
 
         .dialog-content 
@@ -142,17 +143,19 @@
         text-align: center;
         color: #10B981;
         font-size: 2vmin;
+        margin:2vmin;
         }
         .create1, .create2
         {
             width:15vmin;
-            height:4.5vmin;
-             border-radius:1vmin;
+            height:5vmin;
+             border-radius:0.5vmin;
              background-color: #0F172A;
              color:white;
              font-weight: bolder;
              margin-left: 2vmin;
              margin-right: 2vmin;
+             margin-top:2vmin;
             
         }
         .create1:hover{
@@ -238,7 +241,7 @@
             <header>
                 <nav>
                     <div>
-                    <div><button class="sidebutton">Dashboard</button></div>
+                    <button class="sidebutton"><span class="glyphicon glyphicon-home" style="color:white;"></span>Dashboard</button>
                     <div><button class="sidebutton">Transaction</button></div>
                     <div><button class="sidebutton">Analysis</button></div>
                     <div><button class="sidebutton">Reports</button></div>
@@ -318,7 +321,7 @@
             <input type="number" id="dialogAmount" placeholder="Enter Amount">
            
 
-            <select id="dialogCategory">
+            <select id="dialogCategory">     
             <option value="Salary">Salary</option>
             <option value="Refund">Refund</option>
             <option value="Pocket Money">Pocket Money</option>
