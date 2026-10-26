@@ -200,7 +200,7 @@
        
         .sidebar
         {
-            width: 40vmin;
+            width: 30vmin;
            min-height:100vh;
             background-color: #0F172A;
              flex-shrink:0;
@@ -211,6 +211,23 @@
             gap:20vmax;
             
         }
+        .sidebutton
+        {
+            background-color: #0F172A;
+            color:white;
+            width:30vmin;
+            height:6vmin;
+            border-radius: 0.9vmin;
+           margin-bottom:0.9vmin;
+           
+           font-weight: bold;
+           text-align: left;
+        }
+        .sidebutton:hover{
+            background-color: #10B981;
+            color:#0F172A;
+
+        }
     </style>
 </head>
 
@@ -220,7 +237,13 @@
         <div class="sidebar">
             <header>
                 <nav>
-                    <button>Reports</button>
+                    <div>
+                    <div><button class="sidebutton">Dashboard</button></div>
+                    <div><button class="sidebutton">Transaction</button></div>
+                    <div><button class="sidebutton">Analysis</button></div>
+                    <div><button class="sidebutton">Reports</button></div>
+                    <div><button class="sidebutton">Logout</button></div>
+                    </div>
                 </nav>
                 </header>
             </div>
