@@ -34,7 +34,7 @@
      .child1,.child2,.child3,.child4
         {
            
-            width:35vmin;
+            width:30vmin;
             height:22vmin;
             background-color:#0F172A ;
             border-radius:1.8vmin;
@@ -53,6 +53,11 @@
         to { transform: rotateY(360deg); }
         }
 
+        .addIncome
+        {
+            display: flex;
+            justify-content: center;
+        }
 
         .row {
             display: flex;
@@ -104,11 +109,11 @@
             box-shadow: 0 0 10px rgba(170, 42, 3, 0.23);
         }
 
-     h3,h4{
+     h3,h4,h2{
             transition: all 0.2s ease;
         }
 
-       h3:hover,h4:hover{
+       h3:hover,h4:hover,h2:hover{
             transform: scale(1.1);
         }
 
@@ -230,6 +235,7 @@
             <header>
                 <nav>
                     <div>
+                         <h4 style="margin-left:5vmin; color:#10B981;">🪙Paisa.com</h4>
                     <button class="sidebutton"><span class="glyphicon glyphicon-home" style="color:white;"></span>Dashboard</button>
                     <div><button class="sidebutton">Transaction</button></div>
                     <div><button class="sidebutton">Analysis</button></div>
@@ -242,50 +248,41 @@
         
         <div class="parent1">
          <div class="child1">
-            <h1 style="color:#10B981; margin-left:2vmin;  font-size: 3.5vmin; margin-top:5vmin;">Current Balance <span class="w3-content  spin" style="color:#10B981; margin:0%;">₹</span></h1>
+            <h3 style="color:#10B981; margin-left:2vmin;  font-size: 3vmin; margin-top:5vmin;">Current Balance <span class="w3-content  spin" style="color:#10B981; margin:0%;">₹</span></h3>
             <h2 id="balance" style=" margin-left: 4vmin; color:#10B981;  font-size: 4.5vmin; margin-top: 0%; margin-bottom:0%;">₹0</h2>
         </div>
          <div class="child2">
-            <h1 style="color:#10B981;  margin-left:2vmin; padding-top:3vmin; font-size: 3.5vmin; margin-top:2vmin;">Income </h1>
-            <h2 id="balance" style=" margin-left: 4vmin; color:#10B981;  font-size: 4.5vmin; margin-top: 0%; margin-bottom:0%;">₹0</h2>
-        </div>
+            <h4 style="color:#10B981;  margin-left:2vmin; padding-top:3vmin; font-size: 3vmin; margin-top:2vmin;">Income<span style="color:lightgreen;"> ↓</span> </h>
+            <h2 id="balance" style=" margin-left: 4vmin; color:lightgreen;  font-size: 4vmin; margin-top: 0%; margin-bottom:0%;">₹0</h2>
+             <div class="addIncome">
+             <button onclick="openDialog('income')" class= "button1" style="  width:4vmin; height:4vmin;  border-radius: 5vmin; border:none; margin-left: 10vmin; ">
+                 <span style="font-size: 2.5vmin; ">+</span>
+            </button>
+              <h4 style="color:#10B981; font-size: 2vmin;">Add Income</h4>
+            </div>
+            </div>  
+        
+
+               
          <div class="child3">
-            <h1 style="color:#10B981; margin-left:2vmin; padding-top:3vmin; font-size: 3.5vmin; margin-top:2vmin;">Expense </h1>
-            <h2 id="balance" style=" margin-left: 4vmin; color:#10B981;  font-size: 4.5vmin; margin-top: 0%; margin-bottom:0%;">₹0</h2>
+            <h4 style="color:#10B981; margin-left:2vmin; padding-top:3vmin; font-size: 3vmin; margin-top:2vmin;">Expense<span style="color:red;"> ↑</span></h4>
+            <h2 id="balance" style=" margin-left: 4vmin; color:red;  font-size: 4vmin; margin-top: 0%; margin-bottom:0%;">₹0</h4>
         </div>
          <div class="child4">
-            <h1 style="color:#10B981; margin-left:2vmin; padding-top:3vmin; font-size: 3.5vmin; margin-top:2vmin;">Goal </h1>
-            <h2 id="balance" style=" margin-left: 4vmin; color:#10B981;  font-size: 4.5vmin; margin-top: 0%; margin-bottom:0%;">₹0</h2>
+            <h4 style="color:#10B981; margin-left:2vmin; padding-top:3vmin; font-size: 3vmin; margin-top:2vmin;">Goal </h4>
+            <h2 id="balance" style=" margin-left: 4vmin; color:#10B981;  font-size: 4vmin; margin-top: 0%; margin-bottom:0%;">₹0</h4>
         </div>
         </div> 
-             <!-- <h4 style="float:right; color:#10B981; margin-right:2vmin;">🪙Paisa.com</h4> -->
-           <!-- <div class="row">
-            <div class="income">
-                <h4 style="color:lightgreen;">
-                <span style="color:lightgreen;">↓</span> Income
-                </h4>
-                <h3  id ="income" style="color:lightgreen;margin-left: 3vmin;">+₹0</h3>
-            </div> -->
-
-        <!-- <div class="expense">
-            <h4 style="color:red; margin-left: 8vmin;">
-            <span style="color:red;">↑</span> Expense
-            </h4>
-            <h3 id="expense" style="color:red;margin-left: 12vmin;">-₹0</h3>
-        </div> -->
-       
+            
+         
+               
+            </div>
                
        
        
 
         <!-- <div class="parent2">
-            <div class="child3">
-                <button onclick="openDialog('income')" class= "button1" style="  width:8vmin; height:8vmin;  border-radius: 5vmin; border:none;  margin-top: 4vmin;">
-                  
-                    <span style="font-size: 4.5vmin; ">+</span>
-                </button>
-                <h4 style="color:#10B981">Add Income</h4>
-            </div>
+          
             
             <div class="child4">
                 <button onclick="openDialog('expense')" class= "button2" style=" width:8vmin; height:8vmin;  border-radius: 5vmin; border:none; margin-top: 4vmin;  ">
